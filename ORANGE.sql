@@ -202,3 +202,8 @@ AND adres_id ='10002'
 SELECT * FROM adresler1
 WHERE sehir ='Konya'
 OR sehir ='Bursa'
+
+
+
+
+

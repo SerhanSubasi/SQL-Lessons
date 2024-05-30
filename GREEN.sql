@@ -168,4 +168,33 @@ SELECT * FROM customers
 WHERE score < 400 AND country = 'Germany'
 
 
+SELECT * FROM customers c 
+
+
+-- Score değeri 400'den küçük olmayanları getir (NOT örneği)
+SELECT *
+FROM customers c 
+WHERE NOT score < 400
+
+
+-- Between Operator
+-- Belirtilen iki değer arasındakileri seçmek için kullanılır. Sınırlar dahildir.
+
+-- Score değeri 100 ve 500 arasında olanları getir
+SELECT *
+FROM customers c 
+WHERE score BETWEEN '100' AND '500'; 
+
+
+-- Alternatif (Betweensiz)
+SELECT *
+FROM customers c 
+WHERE score >= 100 AND score <= 500;
+
+
+
+
+
+
+
 

@@ -294,3 +294,39 @@ SELECT * FROM personel
 WHERE ad = 'Mehmet' AND soyad = 'Ozman'
 
 
+-- TEAM LEAD: Maaşı 1000 ile 2000 arasında olan bütün çalışanların id, ad, soyad ve maaş bilgilerini istiyorum. Liste maaş tutarına göre sıralansın.
+
+SELECT id, ad, soyad, maas
+FROM personel 
+WHERE maas BETWEEN '1000' AND '2000'
+ORDER BY maas;
+
+-- TEAM LEAD: 1978 yılında doğmuş bütün çalışanların ad, soyad ve doğum günü bilgilerini istiyorum.
+SELECT ad, soyad, dogum 
+FROM personel p
+WHERE dogum BETWEEN '1978-01-01' AND '1978-12-31';
+
+
+-- Her çalışanın id, ad , soyad ve marduk geldiğinde kaç gündür hayatta olduklarını gösteren kodu yazın.
+SELECT id,ad,soyad,
+('2012-12-21' - dogum) AS gun_farki
+FROM personel;
+
+
+-- IN Operator
+-- İçerisinde mi diye sorar ve True veya False döndürür.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
