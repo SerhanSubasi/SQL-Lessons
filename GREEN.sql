@@ -225,12 +225,42 @@ WHERE first_name LIKE 'M%'
 
 
 
+-- GROUP BY
+-- Bir sorguda ortaya çıkacak verileri belirli sütunlara göre gruplandırmak için kullanılır.
+
+
+--Customerların toplam sayısını her ülke için bul
+SELECT COUNT(*) AS total_customers, country 
+FROM customers
+GROUP BY country
+
+
+-- DESC olarak sıralamak istersek.
+SELECT COUNT(*) AS total_customers, country 
+FROM customers
+GROUP BY country
+ORDER BY count(*) DESC
+
+
+--AGGREGATE FUNCTIONS
+--COUNT
+
+SELECT * 
+FROM customers
+
+
+SELECT count(*) AS total_customers
+FROM customers
+
+
+SELECT count(score) AS total_score
+FROM customers
 
 
 
-
-
-
+--SUM Örneği
+SELECT sum(quantity) AS sum_quantity
+FROM orders o 
 
 
 

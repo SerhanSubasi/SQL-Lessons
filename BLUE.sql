@@ -327,10 +327,36 @@ WHERE soyad LIKE '%oğlu';
 
 
 
+-- Bana bütün şirket çalışanlarının ad, soyad ve maaş bilgilerinin tam listesi lazım. Bu listeyi öyle hale getirin ki; ada göre ters, soyada göre ters ve maaşa göre düz bir şekilde sıralanmış olsun.
+SELECT ad, soyad, maas
+FROM personel
+ORDER BY ad DESC, soyad DESC, maas ASC
+;
 
 
+--Şirketimizde toplam kaç kişi çalışıyor?
+SELECT count(id)
+FROM personel p
 
 
+--SUM Örneği
+-- Toplam maaş ödemesi ne kadar olacak
+
+SELECT SUM(maas) AS maas_toplam
+FROM personel
+
+-- Muhasebe departmanında bu ay toplam TL maaş ödemesi yapılacak?
+--bu soruyu 2 aşamada çözeceğiz.
+--ilk olrak muhasebenin departman id sini bulalım
+
+SELECT id
+FROM departman d
+WHERE ad = 'Muhasebe' -- cevap 1
+
+-- Second Phase
+SELECT sum(maas) AS toplam_muhasebe_maas 
+FROM personel
+WHERE departman_id = 1
 
 
 
