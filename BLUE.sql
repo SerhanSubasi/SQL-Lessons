@@ -313,11 +313,17 @@ SELECT id,ad,soyad,
 FROM personel;
 
 
--- IN Operator
--- İçerisinde mi diye sorar ve True veya False döndürür.
+-- İsmi Mehmet, Dilek veya Cengiz olan bütün çalışanları listeleyin. Liste ad ve soyada göre sıralanmış olsun.
+SELECT *
+FROM personel
+WHERE ad IN ('Mehmet', 'Dilek', 'Cengiz')
+ORDER BY ad, soyad;
 
 
-
+-- LIKE Örneği
+SELECT *
+FROM personel
+WHERE soyad LIKE '%oğlu';
 
 
 

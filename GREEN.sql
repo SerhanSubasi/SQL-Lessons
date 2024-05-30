@@ -192,6 +192,43 @@ FROM customers c
 WHERE score >= 100 AND score <= 500;
 
 
+-- IN Operator
+-- İçerisinde mi diye sorar ve True veya False döndürür.
+
+-- id değeri 1,2,5 olan customerları getir.
+SELECT *
+FROM customers
+WHERE customer_id IN (1,2,5);
+
+
+-- LIKE Operator
+-- Eğer içerisinde değer varsa true döndürür. % işaretleri kullanılır. %r% - __r% 
+
+-- İsminin sonu 'n' harfiyle biten tüm customersları bulalım.
+SELECT *
+FROM customers
+WHERE first_name LIKE '%n'
+;
+
+-- İsminin üçüncü pozisyonunda r olanları getir.
+SELECT *
+FROM customers
+WHERE first_name LIKE '__r%'
+;
+
+
+-- İsmi m ile başlayanları  getir.
+SELECT *
+FROM customers
+WHERE first_name LIKE 'M%'
+;
+
+
+
+
+
+
+
 
 
 
