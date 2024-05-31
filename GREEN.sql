@@ -340,5 +340,15 @@ SELECT
 FROM customers c
 GROUP BY country 
 
+-- HAVING
+-- Group By sonuçlarını filtreler. (Where genel filtreler, having group by sonuçlarını filtreler)
 
+--Soru: Her ülke için toplam müşteri sayısını bulup, sadece 1'den fazla olan sonuçları getir.
+
+SELECT
+	country,
+	COUNT(*) AS total_customer
+FROM customers c
+GROUP BY country
+HAVING count(*)>1
 
