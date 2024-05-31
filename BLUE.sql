@@ -363,8 +363,13 @@ WHERE departman_id = 1
 
 SELECT departman_id, SUM(maas) AS toplam_maas
 FROM personel
-GROUP BY (departman_id);
+GROUP BY departman_id;
 
+-- ORDER By ile sıralamalı version
+SELECT departman_id, SUM(maas) AS toplam_maas
+FROM personel
+GROUP BY departman_id
+ORDER BY departman_id ;
 
 
 

@@ -258,9 +258,21 @@ FROM customers
 
 
 
---SUM Örneği
+--SUM
 SELECT sum(quantity) AS sum_quantity
 FROM orders o 
+
+
+-- AVERAGE
+SELECT AVG(score)
+FROM customers c 
+
+
+-- Eğer NULL hücreyi de hesaba kattırmak istersek COALESCE kullanırız;
+SELECT AVG(COALESCE(score,0))  -- Score'daki NULL değerleri 0 olarak al demek.
+FROM customers c 
+
+
 
 
 
