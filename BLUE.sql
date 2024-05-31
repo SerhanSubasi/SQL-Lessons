@@ -372,9 +372,15 @@ GROUP BY departman_id
 ORDER BY departman_id ;
 
 
+-- TEAM LEAD: HEr dapartmana ortalama kaç TL maaş ödeyeceğiz?
+SELECT departman_id, AVG(maas)
+FROM personel
+GROUP BY departman_id;
 
-
-
+-- ROUND ile daha güzel sonuç almak istersek;
+SELECT departman_id, ROUND(AVG(maas), 2) 
+FROM personel
+GROUP BY departman_id;
 
 
 

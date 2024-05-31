@@ -273,6 +273,32 @@ SELECT AVG(COALESCE(score,0))  -- Score'daki NULL değerleri 0 olarak al demek.
 FROM customers c 
 
 
+-- MIN & MAX
+SELECT MIN(score), MAX(score)
+FROM customers c 
+
+SELECT MIN(score), MAX(score)
+FROM customers c 
+
+
+
+SELECT MIN(order_date)
+FROM orders o 
+
+SELECT MAX(order_date)
+FROM orders o 
+
+
+-- 2. yol
+SELECT order_date
+FROM orders
+ORDER BY order_date  DESC
+LIMIT 1
+
+
+
+
+
 
 
 
