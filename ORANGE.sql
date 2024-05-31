@@ -263,6 +263,8 @@ FROM calisanlar3 c
 WHERE maas = 2500
 
 
+-- TEACHERS tablosu oluşturalım
+
 
 
 

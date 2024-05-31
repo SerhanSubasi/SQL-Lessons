@@ -296,6 +296,36 @@ ORDER BY order_date  DESC
 LIMIT 1
 
 
+-- STRING FUNCTIONS
+
+-- CONCAT
+--isim ve soyismi araya tire koyarak birleştiriniz
+SELECT CONCAT(first_name, '-' , last_name) AS customer_name_surname
+FROM customers c 
+
+-- UPPER & LOWER
+-- isim ve soyisimleri BÜYÜK ve küçük olarak değiştir.
+SELECT UPPER(first_name), LOWER(last_name)
+FROM customers c 
+
+-- LENGHT
+SELECT last_name,
+length(last_name)
+FROM customers c 
+
+-- TRIM
+SELECT 
+	last_name,
+	LENGTH(last_name),
+	TRIM(last_name),
+	LENGTH(TRIM(last_name))
+FROM customers c 
+
+-- SUBSTRING
+SELECT last_name, SUBSTRING(last_name,2,3) AS kesilmis_last_name
+FROM customers c 
+
+
 
 
 
