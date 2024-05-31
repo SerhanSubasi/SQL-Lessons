@@ -383,7 +383,15 @@ FROM personel
 GROUP BY departman_id;
 
 
+-- TEAM LEAD: Şirketteki en yüksek maaşı alan kişi kimdir?
 
+SELECT MAX(maas), ad
+FROM personel p 
+GROUP BY ad
+
+
+SELECT MAX(maas) - MIN(maas)
+FROM personel p 
 
 
 

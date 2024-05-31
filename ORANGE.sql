@@ -204,6 +204,66 @@ WHERE sehir ='Konya'
 OR sehir ='Bursa'
 
 
+-- Senaryo: "markalar" ve "calisanlar3" adında iki tablo oluşturun.
+
+CREATE TABLE markalar
+(
+marka_id int, 
+marka_isim VARCHAR(20), 
+calisan_sayisi int
+);
+
+INSERT INTO markalar VALUES(100, 'Vakko', 12000);
+INSERT INTO markalar VALUES(101, 'Pierre Cardin', 18000);
+INSERT INTO markalar VALUES(102, 'Adidas', 10000);
+INSERT INTO markalar VALUES(103, 'LCWaikiki', 21000);
+
+CREATE TABLE calisanlar3 (
+id int, 
+isim VARCHAR(50), 
+sehir VARCHAR(50), 
+maas int, 
+isyeri VARCHAR(20)
+);
+
+INSERT INTO calisanlar3 VALUES(123456789, 'Ali Seker', 'Istanbul', 2500, 'Vakko');
+INSERT INTO calisanlar3 VALUES(234567890, 'Ayse Gul', 'Istanbul', 1500, 'LCWaikiki');
+INSERT INTO calisanlar3 VALUES(345678901, 'Veli Yilmaz', 'Ankara', 3000, 'Vakko');
+INSERT INTO calisanlar3 VALUES(456789012, 'Veli Yilmaz', 'Izmir', 1000, 'Pierre Cardin');
+INSERT INTO calisanlar3 VALUES(567890123, 'Veli Yilmaz', 'Ankara', 7000, 'Adidas');
+INSERT INTO calisanlar3 VALUES(456789012, 'Ayse Gul', 'Ankara', 1500, 'Pierre Cardin');
+INSERT INTO calisanlar3 VALUES(123456710, 'Fatma Yasa', 'Bursa', 2500, 'Vakko');
+
+SELECT * FROM markalar;
+SELECT * FROM calisanlar3;
+
+--calisanlar3 tablosunda max maaş değerini bulunuz.
+SELECT MAX(maas)
+FROM calisanlar3 c 
+
+--calisanlar3 tablosunda min maaş değerini bulunuz.
+SELECT MIN(maas)
+FROM calisanlar3 c 
+
+--calisanlar3 tablosunda toplam maaş değerini bulunuz.
+SELECT SUM(maas)
+FROM calisanlar3 c 
+
+--calisanlar3 tablosunda ortalama maaş değerini bulunuz.
+SELECT ROUND(AVG(maas), 2) 
+FROM calisanlar3 c 
+
+--calisanlar3 tablosundaki kayıt sayısını bulunuz.
+SELECT COUNT(*)
+FROM calisanlar3
+
+--calisanlar3 tablosunda maaşı 2500 olanların kayıt sayısını bulunuz.
+SELECT COUNT(*)
+FROM calisanlar3 c 
+WHERE maas = 2500
+
+
+
 
 
 
