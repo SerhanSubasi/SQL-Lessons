@@ -394,5 +394,20 @@ SELECT MAX(maas) - MIN(maas)
 FROM personel p 
 
 
+-- TEAM LEAD: Her departmanda toplam kaç kişi çalışıyor?
+SELECT 
+	departman_id, 
+	COUNT(*) AS toplam_calisan
+FROM personel p
+GROUP BY departman_id 
+
+
+-- TEAM LEAD: Şirket çalışanlarının ülke bazındaki dağılımı nedir?
+SELECT
+	ulke_id, 
+	COUNT(*) AS kisi_sayisi
+FROM personel p
+GROUP BY ulke_id 
+ORDER BY count(*)
 
 

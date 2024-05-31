@@ -325,11 +325,20 @@ FROM customers c
 SELECT last_name, SUBSTRING(last_name,2,3) AS kesilmis_last_name
 FROM customers c 
 
+-- GROUP BY and HAVING
 
+SELECT 
+	count(*) AS total_customers,
+	country
+FROM customers c
+GROUP BY country 
 
-
-
-
+-- Her bir ülke için en yüksek score'u getir
+SELECT 
+	country,
+	MAX (score) AS max_score
+FROM customers c
+GROUP BY country 
 
 
 
