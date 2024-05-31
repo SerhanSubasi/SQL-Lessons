@@ -359,6 +359,21 @@ FROM personel
 WHERE departman_id = 1
 
 
+-- TEAM LEAD: Her bir departmana toplam kaç TL maaş ödeyeceğiz?
+
+SELECT departman_id, SUM(maas) AS toplam_maas
+FROM personel
+GROUP BY (departman_id);
+
+
+
+
+
+
+
+
+
+
 
 
 
