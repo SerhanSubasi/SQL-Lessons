@@ -315,10 +315,99 @@ FROM teachers t
 -- SORU 3:
 --teachers tablosunda tüm kayıtların firstname değerlerini ilk harfini büyük diğerleri küçük harfe çevirerek görüntüleyiniz.
 
+
 SELECT 
 	firstname,
 	initcap(firstname) AS baslangic_buyuk_firstname 
 FROM teachers t 
+
+
+
+
+
+CREATE TABLE manav
+(
+isim varchar(50),
+urun_adi varchar(50),
+urun_miktar int
+);
+
+INSERT INTO manav VALUES( 'Ali', 'Elma', 5);
+INSERT INTO manav VALUES( 'Ayse', 'Armut', 3);
+INSERT INTO manav VALUES( 'Veli', 'Elma', 2);  
+INSERT INTO manav VALUES( 'Hasan', 'Uzum', 4);  
+INSERT INTO manav VALUES( 'Ali', 'Armut', 2);  
+INSERT INTO manav VALUES( 'Ayse', 'Elma', 3);  
+INSERT INTO manav VALUES( 'Veli', 'Uzum', 5);  
+INSERT INTO manav VALUES( 'Ali', 'Armut', 2);  
+INSERT INTO manav VALUES( 'Veli', 'Elma', 3);  
+INSERT INTO manav VALUES( 'Ayse', 'Uzum', 2);
+
+SELECT * FROM manav;
+
+
+-- senaryo 1: manav tablosundaki tüm isimleri ve her bir isim için, toplam ürün miktarını görüntüleyiniz.*/
+
+SELECT 
+	isim, 
+	SUM(urun_miktar)
+FROM manav m
+GROUP BY isim;
+
+
+/* Senaryo 2: manav tablosundaki tüm isimleri ve her bir isim için toplam ürün miktarını görüntüleyiniz.
+Toplam ürün miktarına göre azalan olarak sıralayınız.*/
+
+SELECT 
+	isim,
+	sum(urun_miktar)
+FROM manav m 
+GROUP BY isim
+ORDER BY sum(urun_miktar) DESC;
+
+
+
+-- Senaryo 3: Her bir ismin aldığı, her bir ürünün toplam miktarını, isme göre sıralı görüntüleyiniz.*/
+-- Önce isime, sonra ürün adına göre 
+
+SELECT 
+	isim,
+	urun_adi, 
+	sum(urun_miktar)
+FROM manav m 
+GROUP BY isim, urun_adi
+ORDER BY isim;
+
+
+-- Senaryo 4: ürün adina göre, her bir ürünü alan toplam kişi sayısını gösteriniz.*/
+
+SELECT
+	urun_adi, 
+	count(DISTINCT(isim)) -- DISTINCT ile UNIQUE olarak aldık isimleri, aynı isimleri saymasın diye.
+FROM manav m 
+GROUP BY urun_adi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
