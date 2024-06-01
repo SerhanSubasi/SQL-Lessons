@@ -346,7 +346,7 @@ INSERT INTO manav VALUES( 'Ayse', 'Uzum', 2);
 SELECT * FROM manav;
 
 
--- senaryo 1: manav tablosundaki tüm isimleri ve her bir isim için, toplam ürün miktarını görüntüleyiniz.*/
+-- Senaryo 1: manav tablosundaki tüm isimleri ve her bir isim için, toplam ürün miktarını görüntüleyiniz.*/
 
 SELECT 
 	isim, 
@@ -381,32 +381,73 @@ ORDER BY isim;
 
 -- Senaryo 4: ürün adina göre, her bir ürünü alan toplam kişi sayısını gösteriniz.*/
 
-SELECT
+SELECT  				  -- toplam denildiği için count
 	urun_adi, 
 	count(DISTINCT(isim)) -- DISTINCT ile UNIQUE olarak aldık isimleri, aynı isimleri saymasın diye.
 FROM manav m 
 GROUP BY urun_adi
 
 
+-- Senaryo 5: Isme göre, alınan toplam ürün miktarı ve ürün çeşit miktarını bulunuz*/
+
+SELECT 
+	isim, 
+	sum(urun_miktar),
+	count(urun_adi) -- saymak denildiği için count
+FROM manav m 
+GROUP BY isim;
 
 
 
+-- HAVING
 
 
+CREATE TABLE personel (
+id int,
+isim varchar(50),
+sehir varchar(50),
+maas int,
+sirket varchar(20)
+);
+
+INSERT INTO personel VALUES(123456789, 'Ali Yilmaz', 'Istanbul', 5500, 'Honda'); 
+INSERT INTO personel VALUES(234567890, 'Veli Sahin', 'Istanbul', 4500, 'Toyota'); 
+INSERT INTO personel VALUES(345678901, 'Mehmet Ozturk', 'Ankara', 3500, 'Honda');
+INSERT INTO personel VALUES(456789012, 'Mehmet Ozturk', 'Izmir', 6000, 'Ford'); 
+INSERT INTO personel VALUES(567890123, 'Mehmet Ozturk', 'Ankara', 7000, 'Tofas');
+INSERT INTO personel VALUES(678901245, 'Veli Sahin', 'Ankara', 4500, 'Ford');  
+INSERT INTO personel VALUES(123456710, 'Hatice Sahin', 'Bursa', 4500, 'Honda');
+
+SELECT * FROM personel p 
 
 
+-- Senaryo 1: HEr bir şirketin MIN maas bilgisini, bilgi eğer 4000'den fazlaysa getirin.
+SELECT 
+	sirket,
+	MIN(maas) AS minumum_maas
+FROM personel p
+GROUP BY sirket
+HAVING MIN(maas) > 4000;
 
+--Senaryo 2: Maaşı 4000 den fazla olan çalışanlarin sirketlerini bulduktan sonra, 
+--bu sinirin ustunde olan MIN maas bilgisini her sirket icin görüntüleyiniz.*/
 
+SELECT 
+	sirket,
+	MIN(maas)
+FROM personel
+WHERE maas > 4000
+GROUP BY sirket
 
+-- Senaryo 3: Eğer bir şehirde çalışan personel (id) sayısı 1'den çoksa,
+-- sehir ismini ve personel sayısını veren sorgu yazınız.
 
-
-
-
-
-
-
-
-
+SELECT
+	sehir,
+	COUNT(id) AS kisi_sayisi
+FROM personel p 
+GROUP BY sehir
+HAVING COUNT(id) > 1
 
 
 
