@@ -368,13 +368,48 @@ VALUES ( 7, 'Max', 'Lang');
 -- Tablodaki veriyi güncellemek için kullanılır. UPDATE - SET - WHERE kullanmak zorunludur.
 
 -- Soru: Customer id'si 6 olan kişinin Country değerini 'Germany' yapınız.
-
 UPDATE customers
 SET country = 'Germany'
 WHERE customer_id = 6;
 
 
+SELECT * FROM customers c;
 
+-- Soru: Max Lang isimli kişinin Country değerini 'UK' yapınız.
+UPDATE customers 
+SET country = 'UK'
+WHERE first_name = 'Max';
+
+-- Soru: Max Lang isimli kişinin Country değerini 'USA' yapıp score değerini 100 olarak güncelleyiniz.
+UPDATE customers  
+SET 
+	country = 'USA', 
+	score = 100
+WHERE first_name = 'Max';
+
+
+-- DELETE & TRUNCATE & DROP
+
+/* 
+ * DELETE: Tablodaki satırları silmek için kullanılır.
+ * TRUNCATE: Tablodaki tüm satırları temizler.
+ * DROP: Tabloyu tamamen siler.
+ */ 
+
+--Not: Update ve Delete işlemlerinde ID üzerinden koşul konulması best practice'dir.
+
+-- SORU: Yeni eklenen Anne ve Max'i tablodan siliniz.
+DELETE FROM customers
+WHERE customer_id IN (6,7);
+
+
+
+-- SORU: Tablodaki tüm customers'ları siliniz.
+TRUNCATE TABLE customers;
+
+
+-- SORU: customers tablosunu siliniz.
+DROP TABLE customers;
 
 
 
