@@ -350,5 +350,34 @@ SELECT
 	COUNT(*) AS total_customer
 FROM customers c
 GROUP BY country
-HAVING count(*)>1
+HAVING count(*)>1;
+
+
+-- INSERT Ornek
+
+SELECT * FROM customers c;
+
+INSERT INTO customers VALUES (6, 'Anne', 'Nixon', 'UK', NULL);
+
+INSERT INTO customers 
+	(customer_id,first_name, last_name)
+VALUES ( 7, 'Max', 'Lang');
+
+
+-- UPDATE
+-- Tablodaki veriyi güncellemek için kullanılır. UPDATE - SET - WHERE kullanmak zorunludur.
+
+-- Soru: Customer id'si 6 olan kişinin Country değerini 'Germany' yapınız.
+
+UPDATE customers
+SET country = 'Germany'
+WHERE customer_id = 6;
+
+
+
+
+
+
+
+
 
