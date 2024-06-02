@@ -452,3 +452,67 @@ HAVING COUNT(id) > 1
 
 
 
+
+
+CREATE TABLE calisanlar4 (
+id INT UNIQUE, 
+isim VARCHAR(50), 
+sehir VARCHAR(50), 
+maas INT, 
+isyeri VARCHAR(20)
+);
+
+INSERT INTO calisanlar4 VALUES(123456789, 'Ali Seker', 'Istanbul', 2500, 'Vakko');
+INSERT INTO calisanlar4 VALUES(234567890, 'Ayse Gul', 'Istanbul', 1500, 'LCWaikiki');
+INSERT INTO calisanlar4 VALUES(345678901, null, 'Ankara', 3000, 'Vakko');
+INSERT INTO calisanlar4 VALUES(456789012, 'Veli Yilmaz', 'Izmir', 1000, 'Pierre Cardin');
+INSERT INTO calisanlar4 VALUES(567890123, 'Veli Yilmaz', 'Ankara', 7000, 'Adidas');
+INSERT INTO calisanlar4 VALUES(678901234, 'Ayse Gul', 'Ankara', 1500, 'Pierre Cardin');
+INSERT INTO calisanlar4 VALUES(789012345, 'Fatma Yasa', null, 2500, 'Vakko');
+INSERT INTO calisanlar4 VALUES(890123456, null, 'Bursa', 2500, 'Vakko');
+INSERT INTO calisanlar4 VALUES(901234567, 'Ali Han', null, 2500, 'Vakko');
+
+SELECT * FROM calisanlar4;
+
+
+
+-- UPDATE ÖRNEKLERİ
+
+--Senaryo 1: calisanlar4 tablosunda id’si 123456789 olan çalışanın isyeri ismini 'Trendyol' olarak güncelleyiniz.*/
+
+UPDATE calisanlar4  
+SET isyeri = 'Trendyol'
+WHERE id = 123456789;
+
+
+
+
+--Senaryo 2: id’si 567890123 olan çalışanın ismini 'Veli Yıldırım' ve sehrini 'Bursa' olarak güncelleyiniz.*/
+
+UPDATE calisanlar4  
+SET isim = 'Veli Yıldırım', sehir = 'Bursa'
+WHERE id = 567890123;
+
+
+SELECT * FROM markalar m 
+
+-- Senaryo 3: markalar tablosundaki marka_id değeri 102’ye eşit veya büyük olanların marka_id’sini 2 ile çarparak değiştirin.*/
+
+UPDATE markalar  
+SET marka_id = marka_id * 2
+WHERE marka_id >= 102;
+
+
+-- Senaryo 4: markalar tablosundaki tüm markaların calisan_sayisi değerlerini marka_id ile toplayarak güncelleyiniz.*/
+
+UPDATE markalar  
+SET calisan_sayisi = marka_id + calisan_sayisi 
+-- WHERE'e ihtiyaç yok, çünkü bir koşul bulunmuyor. Uyarı verir, onaylamak gerekir.
+
+
+
+
+
+
+
+
