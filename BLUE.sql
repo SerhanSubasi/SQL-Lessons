@@ -448,10 +448,20 @@ ALTER TABLE haber
 DROP COLUMN ozet;
 
 
+-- SORU: Bana her bir personelin ID’sini, adını ve soyadını; bunun yanı sıra çalıştığı departmanın ID’sini ve adını bir arada listeleyip getirin.
 
+SELECT * FROM personel p 
+SELECT * FROM departman d 
 
-
-
+SELECT
+p.id AS personel_id,
+p.ad,
+p.soyad,
+d.id AS departman_id,
+d.ad AS departman_adı
+FROM personel p 
+INNER JOIN departman d
+ON p.departman_id = d.id;
 
 
 

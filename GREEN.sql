@@ -468,7 +468,16 @@ FROM customers AS c
 INNER JOIN orders AS o
 ON c.customer_id = o.customer_id; 
 
-
+/*
+ * SELECT
+ * *
+ * *
+ * *
+ * *
+ * FROM 1. TABLO
+ * INNER JOIN 2. TABLO
+ * ON 1. TABLO = 2. TABLO (Anahtar)
+ */
 
 
 
