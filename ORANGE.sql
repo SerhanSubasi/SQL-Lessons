@@ -538,10 +538,22 @@ ALTER TABLE calisanlar4
 ADD remote boolean DEFAULT TRUE;
 
 
+-- Senaryo 3: calisanlar4 tablosunda yas sutununu siliniz
 
+ALTER TABLE calisanlar4 
+DROP yas;
 
+-- Senaryo 4: calisanlar4 tablosundaki maas sutununun data tipini real olarak güncelleyiniz.*/
 
+ALTER TABLE calisanlar4 
+ALTER COLUMN maas TYPE REAL;
 
+-- Senaryo 9: calisanlar4tablosunda isim sütununa
+--NOT NULL constrainti ekleyiniz. (edited) 
+
+ALTER TABLE calisanlar4
+ALTER COLUMN isim SET NOT NULL
+-- NOT: NULL içeren fieldlar varsa izin vermez.
 
 
 
