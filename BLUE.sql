@@ -423,6 +423,42 @@ WHERE id = 59;
 -- NOT: WHERE olmadan çalıştırılırsa, tüm tabloya etki ederdi.
 
 
+CREATE TABLE haber (
+   id SERIAL PRIMARY KEY,
+   tarih DATE,
+   baslik CHAR(50),
+   metin TEXT,
+   goruntu INTEGER
+);
+
+SELECT * FROM haber
+
+-- TEAM LEAD: haber tablosuna 'ozet' isimli bir field ekleyiniz.
+
+ALTER TABLE haber
+ADD ozet char(100);
+
+-- TEAM LEAD: ozet field'ının tipini 250 yapın.
+
+ALTER TABLE haber
+ALTER COLUMN ozet TYPE char(250);
+
+-- eğer ozet field'ını silmek istersek;
+ALTER TABLE haber 
+DROP COLUMN ozet;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -412,6 +412,52 @@ TRUNCATE TABLE customers;
 DROP TABLE customers;
 
 
+/* ALTER TABLE  tabloda ADD, MODIFY, veya DROP/DELETE COLUMNS 
+ * islemleri icin kullanilir.
+   ALTER TABLE ifadesi tablolari yeniden isimlendirmek 
+   (RENAME) icin de kullanilir. */
+   
+   
+CREATE TABLE public.persons (
+id SERIAL PRIMARY KEY,
+person_name VARCHAR(50) NOT NULL,
+birth_date DATE,
+phone VARCHAR(15) NOT NULL UNIQUE
+);
+
+-- ALTER TABLE
+
+-- TASK: person tablosuna email diye bir field ekleyiniz.
+
+ALTER TABLE persons 
+ADD email varchar(15) NOT NULL;
+
+
+-- persons tablosuna adress isimli bir field ekleyelim.
+ALTER TABLE persons 
+ADD adress varchar(50);
+
+-- adress field'ını kaldırınız
+ALTER TABLE persons
+DROP adress;
+
+-- persons tabloda phone field'ının veri tipini varchar(20) olarak düzenleyiniz.
+ALTER TABLE persons
+ALTER COLUMN phone TYPE varchar(20);
+
+SELECT * FROM persons
+
+-- persons tablasonun adını 'contact' olarak değiştirin.
+ALTER TABLE persons
+RENAME TO contacts;
+
+SELECT * FROM contacts;
+
+-- contacts tablosundaki phone field adını contact_number olarak değiştirin.
+ALTER TABLE contacts
+RENAME phone TO contact_number;
+
+
 
 
 

@@ -510,6 +510,57 @@ SET calisan_sayisi = marka_id + calisan_sayisi
 -- WHERE'e ihtiyaç yok, çünkü bir koşul bulunmuyor. Uyarı verir, onaylamak gerekir.
 
 
+-- VACUUM komutu
+/* PostgreSQL'de bir tablo veya veri silindiğinde disk 
+ * alanını geri kazanmak istiyorsanız, VACUUM komutunu 
+ * kullanabilirsiniz. VACUUM komutu silinen verilerin yer 
+ * kaplamasını önler, boş alanı temizler ve veritabanındaki
+ *  diğer işlemler için kullanılabilir hale getirir. 
+-- Syntax: VACUUM FULL table_name;
+-- MySQL de PURGE komutunmunu karşılığı
+
+
+-- ALTER TABLE konusu
+
+-- Senaryo 1: calisanlar4 tablosuna yas (int) seklinde yeni sutun ekleyiniz.*/
+
+
+ALTER TABLE calisanlar4 
+ADD yas int;
+
+
+SELECT * FROM calisanlar4
+
+
+-- Senaryo 2: calisanlar4 tablosuna remote (boolean) seklinde yeni sutun ekleyiniz. varsayılan olarak remote değeri TRUE olsun*
+
+ALTER TABLE calisanlar4 
+ADD remote boolean DEFAULT TRUE;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
