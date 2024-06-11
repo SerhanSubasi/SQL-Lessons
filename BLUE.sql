@@ -411,3 +411,19 @@ GROUP BY ulke_id
 ORDER BY count(*)
 
 
+
+-- SORU: 59 ID’li personeli Almanya ya gönderip maaşına da 100 Birim zam yapıldı.
+
+UPDATE personel 
+SET
+	maas = maas + 100,
+	ulke_id = 'DE'
+WHERE id = 59;
+
+-- NOT: WHERE olmadan çalıştırılırsa, tüm tabloya etki ederdi.
+
+
+
+
+
+
