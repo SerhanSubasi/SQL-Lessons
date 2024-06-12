@@ -492,9 +492,72 @@ GROUP BY u.id, u.ad;
 -- NOT: Select'ten sonraki ifadelerin GROUP BY'da da yazılması gerekir.
 
 
+-- INNER JOIN
+
+-- ÖNEMLİ NOT:
+--Pratikte; COUNT,SUM gibi matematiksel komutlar söz konusu
+--olduğunda,sayılan alan haricindeki (ÖRNEK COUNT(*))
+--bütün alanları GROUP BY listesine dahil etmemiz gerekecektir.
+
+
+-- SORU: Her bir departmanın ID'sini, adını ve o departmana ödenen toplam maaşı tek bir liste içinde görmek istiyorum
+
+SELECT 
+d.id AS departman_id,
+d.ad AS departman_adı,
+SUM(p.maas) AS toplam_maas
+FROM personel p
+INNER JOIN departman d
+ON p.departman_id = d.id 
+GROUP BY d.id,d.ad;
+
+
+-- TEAM LEAD: Çocuklar, bana getirdiğiniz listeyi maaş toplamına göre artan şekilde sıralar mısınız ?
+
+SELECT 
+d.id AS departman_id,
+d.ad AS departman_adı,
+SUM(p.maas) AS toplam_maas
+FROM personel p
+INNER JOIN departman d
+ON p.departman_id = d.id 
+GROUP BY d.id,d.ad
+ORDER BY SUM(p.maas) ASC;
+
+
+-- TEAM LEAD: Personele ödenen maaşları ülke bazında toplayıp listeleminizi istiyorum. Çıktılar ülke ismine göre sıralanmış olsun
+
+SELECT 
+u.id AS ID,
+u.ad AS millet,
+SUM(p.maas) AS toplam_maas
+FROM personel p 
+INNER JOIN ulke u
+ON u.ad = p.ulke_id
+GROUP BY u.id, u.ad
+ORDER  BY u.ad; 
+
+
+-- Aylık maaşı 2.000 den fazla olan kişilerin maaşlarının toplamını ülke bazında görmek istiyorum.
+-- Çıktı listesinde ülkenin ID si, adı ve maaş toplamı yer alsın.
+
+SELECT 
+u.id AS ID,
+u.ad AS millet,
+sum(p.maas) AS top_maas
+FROM personel p
+INNER JOIN ulke u
+ON u.ad = p.ulke_id
+WHERE p.maas > 2000
+GROUP BY u.id, u.ad;
+
+
+
+
 
 SELECT * FROM personel p 
-SELECT * FROM ulke u 
+SELECT * FROM ulke u
+SELECT * FROM departman d 
 
 
 
