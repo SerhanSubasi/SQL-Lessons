@@ -478,13 +478,18 @@ ORDER BY u.ad, p.ad, p.soyad;
 
 
 
+-- SORU: Bana öyle bir liste hazırlayın ki, içinde her bir ülkenin ID’si, ismi ve o ülkeden gelen personelin sayısı olsun.
 
+SELECT 
+u.id,
+u.ad AS ulke_adi,
+count(p.id) AS toplam_calisan
+FROM ulke u
+INNER JOIN personel p
+ON u.ad = p.ulke_id 
+GROUP BY u.id, u.ad;
 
-
-
-
-
-
+-- NOT: Select'ten sonraki ifadelerin GROUP BY'da da yazılması gerekir.
 
 
 

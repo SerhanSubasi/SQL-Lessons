@@ -481,6 +481,51 @@ ON c.customer_id = o.customer_id;
 
 
 
+-- LEFT JOIN
+-- SORU: customer tablosundan customer_id, first_name ve orders tablosundan orderid, quantity field larını  left join tarzında birleştirerek getiriniz
+
+SELECT
+	c.customer_id,
+	c.first_name,
+	o.order_id,
+	o.quantity 
+FROM customers c
+LEFT JOIN orders o 
+ON c.customer_id = o.customer_id;
+
+
+-- RIGHT JOIN
+-- SORU: customer tablosundan customer_id, first_name ve orders tablosundan orderid, quantity field larını  right join tarzında birleştirerek getiriniz
+
+SELECT 
+c.customer_id,
+c.first_name,
+o.order_id,
+o.quantity 
+FROM customers c
+right JOIN orders o 
+ON c.customer_id = o.customer_id; 
+
+
+-- FULL JOIN
+-- Soru: customer tablosundan customer_id, first_name
+-- ve orders tablosundan orderid, quantity field larını
+-- full join tarzında birleştirerek getiriniz
+
+SELECT 
+c.customer_id,
+c.first_name,
+o.order_id,
+o.quantity 
+FROM customers c
+FULL JOIN orders o 
+ON c.customer_id = o.customer_id; 
+
+
+
+
+
+
 
 
 
