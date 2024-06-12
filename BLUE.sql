@@ -552,6 +552,42 @@ WHERE p.maas > 2000
 GROUP BY u.id, u.ad;
 
 
+-- Departmanlara ödenecek toplam maaşları departman ID si
+--ve ad bazında listelemenizi istiyorum. Ancak, bu listede
+--sadece, toplam ödenecek maaş tutarı 10.000 in üzerinde
+-- olan departmanlar yer alsın.
+
+SELECT 
+d.id AS ID,
+d.ad AS departman,
+sum(p.maas) AS toplam_maas
+FROM personel p
+INNER JOIN departman d
+ON d.id = p.departman_id 
+GROUP BY d.id, d.ad
+HAVING sum(p.maas) > 10000; --bu listede denildiği için having kullandık genel filtre olan where değil. 
+
+
+-- UNION KONUSU
+
+-- Şirketimizde çalışan bütün personelin ve bütün müşterilerimizin ad, soyad, E-Posta ve doğum günü bilgilerini tek bir liste içinde görmek istiyorum.
+
+SELECT 
+	ad,
+	soyad,
+	email,
+	dogum 
+FROM personel p 
+UNION
+SELECT 
+	ad,
+	soyad,
+	email,
+	dogum 
+FROM musteri m; 
+
+
+
 
 
 

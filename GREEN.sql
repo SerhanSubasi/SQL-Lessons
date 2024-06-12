@@ -521,6 +521,71 @@ FROM customers c
 FULL JOIN orders o 
 ON c.customer_id = o.customer_id; 
 
+-- UNION & UNION ALL
+
+-- Müşterilerden ve çalışanlardan tüm kişilerin adını soyadını ve ülkesini listeleyin
+
+
+SELECT
+	first_name,
+	last_name,
+	country 
+FROM customers c 
+UNION -- UNION kullanınca tekrar edilen satırlar gelmez. UNION ALL ise hepsini getirir.
+SELECT
+	first_name,
+	last_name,
+	emp_country 
+FROM employees e 
+
+
+
+SELECT
+	first_name,
+	last_name,
+	country 
+FROM customers c 
+UNION ALL 
+SELECT
+	first_name,
+	last_name,
+	emp_country 
+FROM employees e 
+
+
+
+
+
+
+/*
+ * PostgreSQL'de UNION operatörünü kullanabilmek için, birleştirmek istediğiniz sorgu sonuçlarının şu koşulları karşılaması gerekir:
+1. Aynı sayıda sütun: UNION işlemini uygulayabilmeniz için her iki sorgu da aynı sayıda sütuna sahip olmalıdır.
+2. Uyumlu veri türleri: Sütunların aynı veri türünde olması gerekir. Örneğin, bir sorgu integer türünde bir sütun döndürürken, diğer sorgu text türünde bir sütun döndürüyorsa, UNION işlemini uygulayamazsınız.
+3. Uyumlu sıralı sütunlar: Her iki sorgunun aynı sırada aynı veri türündeki sütunları döndürmesi gerekir. Yani, ilk sorgunun ilk sütunu integer türünde ise, ikinci sorgunun ilk sütunu da integer türünde olmalıdır.
+4. Uyumlu sıralama kuralları: UNION işlemi sonuçları, her iki sorgudan gelen verileri aynı sıralama kurallarına göre birleştirir. Bu, her iki sorguda da aynı ORDER BY ifadesinin kullanılması gerektiği anlamına gelir.
+5. Aynı sütun adları (isteğe bağlı): Her iki sorgunun aynı sütun adlarını kullanması gerekmez, ancak sütun adları farklıysa, sonuç kümesinde sütun adları ilk sorgudaki adlara göre belirlenir.
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

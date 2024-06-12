@@ -556,23 +556,79 @@ ALTER COLUMN isim SET NOT NULL
 -- NOT: NULL içeren fieldlar varsa izin vermez.
 
 
+-- IS NULL KONUSU
+-- Not: Filtreleme gibi çalışır.
+
+--Ornek 1: calisanlar4 tablosunda isim sütunu null olanları listeleyiniz.
+
+SELECT * 
+FROM calisanlar4 c
+WHERE isim IS NULL  -- NULL değerleri getirdi
+
+
+-- IS NOT NULL KONUSU
+
+SELECT * 
+FROM calisanlar4 c
+WHERE isim IS NOT NULL  -- NULL olmayan değerleri getirdi
+
+
+-- Ornek 3: calisanlar4 tablosunda isim sütunu null olanların isim değerini 'Unknown' olarak güncelleyiniz.
+
+UPDATE calisanlar4 
+SET isim = 'Unknown'
+WHERE isim IS NULL 
+
+
+SELECT * FROM calisanlar4 c 
 
 
 
 
 
 
+CREATE TABLE people
+(
+ssn INT,
+name VARCHAR(50),
+address VARCHAR(80)
+);
 
 
+INSERT INTO people VALUES(123456789, 'Mark Star', 'Florida');
+INSERT INTO people VALUES(234567890, 'Angie Way', 'Virginia');
+INSERT INTO people VALUES(345678901, 'Maryy Tien', 'New Jersey');
+INSERT INTO people(ssn, address) VALUES(456789012, 'Michigan');
+INSERT INTO people(ssn, address) VALUES(567890123, 'California');
+INSERT INTO people(ssn, name) VALUES(567890123, 'California');
 
+ SELECT * FROM people;
 
+--SSN degeri 234567890 olan kayıtın SSN degerini 456767890 olarak update ediniz.
+UPDATE people
+SET ssn= 456767890
+WHERE ssn= 234567890;
 
+--Tüm null değerleri "Isim daha sonra eklenecek" olarak değiştirin
+UPDATE people
+SET name= 'Isim daha sonra eklenecek'
+WHERE name IS NULL;
 
+--Tüm null adres değerlerini "Adres daha sonra eklenecek" olarak değiştirin
+UPDATE people
+SET address ='To Be Inserted'
+WHERE address IS NULL;
 
+--Ad değeri olmayan kayıtlar nasıl silinir?
+DELETE FROM people
+WHERE name='Isim daha sonra eklenecek';
 
+--Tüm kayıtlar nasıl silinir?
+DROP TABLE people;
 
-
-
+-- NULL olan tum kayıt yada adresleri siliniz
+DELETE FROM people
+WHERE name IS NULL OR address IS NULL;
 
 
 
