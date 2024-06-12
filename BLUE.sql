@@ -465,11 +465,31 @@ ON p.departman_id = d.id;
 
 
 
+-- SORU: Her bir personelin adını, soyadını ve ülkesinin ismini listeleyin. Liste; ülke adı, personel adı ve personel soyadına göre sıralanmış olsun.
+
+SELECT 
+u.ad AS millet,
+p.ad AS personel_adı,
+p.soyad AS personel_soyadı
+FROM personel p
+INNER JOIN ulke u
+ON p.ulke_id = u.ad
+ORDER BY u.ad, p.ad, p.soyad; 
 
 
 
 
 
+
+
+
+
+
+
+
+
+SELECT * FROM personel p 
+SELECT * FROM ulke u 
 
 
 
